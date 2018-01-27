@@ -122,8 +122,7 @@ void Board_init()
 
      for (i = 0; i < N_ROWS; i++) {
           for (j = 0; j < N_COLS; j++) {
-               r = rand() % 5;             
-               if (r == 0) 
+               if (rand() % 5) 
                     board[i][j] = BOMB_SQUARE;
                else
                     board[i][j] = EMPTY_SQUARE;
@@ -178,7 +177,7 @@ int Board_isLegalMove(char cRow, char cCol)
           return 0;
      if (iCol < 0 || iCol >= N_COLS)
           return 0;
-     /* Cannot play on cleared square or square with flag. */
+     /* Cannot play on cleared square. */
      if (board[iRow][iCol] == CLEARED_SQUARE)
           return 0;
      return 1;
